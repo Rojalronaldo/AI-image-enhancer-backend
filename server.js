@@ -45,7 +45,9 @@ app.post('/upload', upload.single('image'), async (req, res) => {
   const outputFilePath = path.join(uploadDir, `enhanced-${req.file.filename}`);
 
   try {
-    let command = `python3 ../ai_processing/ai_image_processing.py ${inputFilePath} ${outputFilePath} ${enhancementType}`;
+    let scriptPath = path.join(__dirname, '../ai_processing/ai_image_processing.py');
+    let command = `"C:\\Python312\\python.exe" "${scriptPath}" "${inputFilePath}" "${outputFilePath}" "${enhancementType}"`;
+
     
     exec(command, (error, stdout, stderr) => {
       if (error) {

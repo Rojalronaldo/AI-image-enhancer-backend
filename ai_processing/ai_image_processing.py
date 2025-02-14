@@ -6,6 +6,7 @@ from PIL import Image
 from torchvision.transforms import ToTensor, ToPILImage
 import os
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # Load AI model processing functions
 from ai_models.esrgan import enhance_image as esrgan_enhance
 from ai_models.deblurgan import enhance_image as deblurgan_enhance
